@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bai4</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body>
+    <div ng-app="myApp">
+        <div ng-controller="myCtrl">
+            <div class="container">
+                <form action="" class="form" ng-submit="calculate($event)">
+                    <div class="form-group">
+                        <label for="">Length</label>
+                        <input type="text" ng-model="length" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Width</label>
+                        <input type="text" ng-model="width" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Acreage</label>
+                        <input type="text" ng-model="acreage" class="form-control" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Perimeter</label>
+                        <input type="text" ng-model="perimeter" class="form-control" readonly>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary" type="submit">Calculate</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        angular.module('myApp', []).controller('myCtrl', function($scope) {
+            $scope.calculate = function(event) {
+                event.preventDefault();
+                var a = parseFloat($scope.width);
+                var b = parseFloat($scope.length);
+                $scope.acreage = a * b;
+                $scope.perimeter = (a + b) * 2;
+            };
+        });
+    </script>
+</body>
+
+</html>
