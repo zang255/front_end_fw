@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="js/angular.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ <style>
+
+ </style>
+</head>
+  <body>
+    <body ng-app="myapp">
+        <div ng-controller="myctrl">
+            <div class="row">
+                    <div class="row">
+                        <div class="col-md-3" ng-repeat="product in products">
+                            <div class="panel panel-primary text-center">
+                                <div style="border-radius: 4px; border: 1px solid gray; background-color: rgb(155, 155, 232); margin-top: 20px; height: 40px; width: 300px; margin-left: 29px; color: aliceblue;" class="panel-heading">{{product.name}}</div>
+                                <div class="panel-body">
+                                    <img class="poly-prod" style="width: 300px; height: 200px;border: 1px solid gray;" src="images/{{product.image}}"  alt="">
+                                </div>
+                                <div class="panel-footer" style="border-radius: 4px;border: 1px solid gray;width: 300px; height: 40px;margin-left: 29px; background-color: rgb(218, 215, 215);">
+                                    ${{product.price}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            var app = angular.module("myapp", []);
+            app.controller("myctrl", function($scope) {
+                $scope.products = [
+                    {
+                        name: "Phở bò",
+                        image: "anh41.jpeg",
+                        price: 1000
+                    },
+                    {
+                        name: "Phở gà",
+                        image: "anh22.jpg",
+                        price: 1200
+                    },
+                    {
+                        name: "Phở tổng hợp",
+                        image: "anh777.jpg",
+                        price: 1500
+                    },
+                    {
+                        name: "Bún chả",
+                        image: "anh55.jpg",
+                        price: 900
+                    },
+                    {
+                        name: "Bún riêu cua",
+                        image: "anh333.jpg",
+                        price: 1100
+                    },
+                    {
+                        name: "Bún bò Huế",
+                        image: "anh5.jpg",
+                        price: 1300
+                    },
+                    {
+                        name: "Mì Quảng",
+                        image: "anh41.jpeg",
+                        price: 950
+                    },
+                    {
+                        name: "Cơm gà",
+                        image: "anh7.jpeg",
+                        price: 850
+                    }
+                ];
+            });
+        </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
