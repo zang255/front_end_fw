@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bài 2</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-app="myapp">
+    <br>
+    <div class="container" ng-controller="myctrl1">
+        <form action="" class="form">
+            <div class="form-group">
+                <label for="">Name</label>
+                <input type="text" class="form-control" ng-model="student.name">
+            </div>
+            <div class="form-group">
+                <label for="">Birth</label>
+                <input type="text" class="form-control" ng-model="student.birth">
+            </div>
+            <div class="form-group">
+                <label for="">Mark</label>
+                <input type="text" class="form-control" ng-model="student.mark">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" ng-click="save()">save</button>
+                <button class="btn btn-danger" ng-click="cancel()">cancel</button>
+            </div>
+        </form>
+    </div>
+    <div class="container" ng-controller="myctrl2">
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Birth</th>
+                <th>Mark</th>
+                <th>Action</th>
+            </tr>
+            <tr ng-repeat="student in students">
+                <td>{{student.name}}</td>
+                <td>{{student.birth}}</td>
+                <td>{{student.mark}}</td>
+                <td><a href="#" ng-click="edit($index)">Edit</a></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        var app = angular.module("myapp", []);
+
+        app.controller("myctrl2", function ($rootScope) {
+            $rootScope.students = [
+                {
+                    name: "nva",
+                    birth: "2-2-2022",
+                    mark: 8
+                },
+                {
+                    name: "nva2",
+                    birth: "2-2-2005",
+                    mark: 9
+                }
+            ];
+            $rootScope.edit = function (index) {
+                $rootScope.index = index;
+                $rootScope.student = angular.copy($rootScope.students[index]);
+            };
+        });
+
+        app.controller("myctrl1", function ($rootScope) {
+            $rootScope.save = function () {
+                $rootScope.students[$rootScope.index] = $rootScope.student;
+            };
+            $rootScope.cancel = function () {
+                $rootScope.student = angular.copy($rootScope.students[$rootScope.index]);
+            };
+        });
+    </script>
+</body>
+
+</html>
