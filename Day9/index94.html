@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-app="myapp">
+    <div ng-controller="myctrl">
+        <table class="table table-bordered table-condensed">
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>birth</th>
+                <th>gender</th>
+                <th>point_avg</th>
+               
+            </tr>
+            <tr ng-repeat="sv in user">
+                <td><img src="../image/{{sv.image}}" alt="" width="100px"></td>
+                <td>{{sv.name}}</td>
+                <td>{{sv.birth}}</td>
+                <td>{{sv.gender}}</td>
+                <td>{{sv.point_avg}}</td>
+            </tr>
+        </table>
+        <script>
+            angular.module('myapp', []).controller('myctrl', function ($scope) {
+                $scope.user =[
+                {
+                    image:"DSC07863-1536x1026.jpg",
+                    name: "Nvt",
+                    birth: "20-01-1995",
+                    gender: "nam",
+                    point_avg: "8.1"
+                },
+                {
+                    image:"DSC07863-1536x1026.jpg",
+                    name: "Nvt1",
+                    birth: "20-01-1995",
+                    gender: "nu",
+                    point_avg: "8.6"
+                },
+                {
+                    image:"DSC07863-1536x1026.jpg",
+                    name: "Nvt3",
+                    birth: "20-01-1995",
+                    gender: "nam",
+                    point_avg: "8.9"
+                }
+                ]
+            });
+        </script>
+    </div>
+</body>
+
+</html>
