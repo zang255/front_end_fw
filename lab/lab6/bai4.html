@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>bai4</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        input.ng-invalid {
+            background-image: url(./images/anh22.jpg);
+            background-position: center right;
+            background-repeat: no-repeat;
+            background-size: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" ng-app="myapp" ng-controller="myctrl">
+        <div class="card-columns">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title panel-header">Thong tin sinh vien</h4>
+                    <form action="" method="get" class="panel-body" name="form">
+                        <div class="form-group">
+                            <label for="">Full name</label>
+                            <input type="text" class="form-control" required maxlength="25" name="txtFullname" ng-model="txtFullname">
+                            <span ng-show="form.txtFullname.$invalid" style="color: red;">
+                                Ten dai toi da 25 ki tu
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Mark</label>
+                            <input type="number" class="form-control" min="0" max="10" name="txtMark" ng-model="txtMark">
+                            <span ng-show="form.txtMark.$invalid"  style="color: red;">
+                                diem tu 0-10
+                            </span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Email</label>
+                            <input type="email" class="form-control" required name="txtEmail" ng-model="txtEmail">
+                            <span ng-show="form.txtEmail.$invalid"  style="color: red;">
+                                Email khong dung
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Car number</label>
+                            <input type="text" class="form-control" pattern="5\d-[A-Z]\d-((\d{4})|(\d{3}\.\d{2}))"
+                                name="txtCarNumber" ng-model="txtCarNumber"  style="color: red;">
+                            <span ng-show="form.txtCarNumber.$invalid">
+                                Bien so khong phai bien Sai Gon
+                            </span>
+                        </div>
+                        <button type="" class="btn btn-default panel-footer">Save</button>
+
+                        <h4 ng-show="form.$valid" style="color: green;">
+                            chúc mừng bạn đã nhập đúng
+                        </h4>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+        <script>
+            var app = angular.module('myapp', []);
+            app.controller('myctrl', function ($scope) {
+                // Controller logic here
+            });
+        </script>
+</body>
+
+</html>
